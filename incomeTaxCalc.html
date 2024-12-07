@@ -1,0 +1,113 @@
+ <!DOCTYPE html>
+<html lang="en">
+<title>Ariño - Income Tax Calculator</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+      font-family: "Lato", sans-serif;
+    }
+
+    /* Adjust input boxes to have the same width */
+    input[type="number"], input[readonly] {
+      width: 200px;
+    }
+
+    .input-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    label {
+      display: inline-block;
+      width: 160px; /* Consistent label width */
+      text-align: right;
+    }
+
+    /* Align labels and input boxes */
+    .form-group {
+      margin-bottom: 15px;
+      margin-left: 100px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+</style>
+<body>
+<!-- Navbar -->
+<br>
+<div class="w3-top">
+  <div class="w3-bar w3-card" style="background-color: #1A2D42; color: white">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="index.html" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+ 
+   
+    <div class="w3-dropdown-hover w3-hide-small">
+      <button class="w3-padding-large w3-button" title="More">Assignments<i class="fa fa-caret-down"></i></button>     
+           <div class="w3-dropdown-content w3-bar-block w3-card-4">
+             <a href="conversions.html" class="w3-bar-item w3-button">Conversions</a>
+             <a href="incomeTaxCalc.html" class="w3-bar-item w3-button">Income Tax Calculator</a>
+            <a href="factorial.html" class="w3-bar-item w3-button">Factorial</a>
+            <a href="payroll.html" class="w3-bar-item w3-button">Payroll System</a>
+      </div>
+    </div>
+
+   
+   
+  </div>
+</div>
+<!-- Page content -->
+<div class="w3-content" style="max-width:2000px;margin-top:46px">
+
+   <!-- The Band Section -->
+  <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
+    <h2 class="w3-wide">Income Tax Calculator</h2>
+      <br><br><br>
+      <div class="form-group input-row">
+        <label for = "income">Enter Taxable Income: </label>
+        <input id = "income" type = "number">
+        <button id="calculate">Calculate</button>
+        <button id = "clearValuesCF">Clear values</button>
+      </div>
+      <br><br>
+      <div class="form-group input-row">
+        <label for = "tax">Income Tax: </label>
+        <input id = "tax" type = "number">
+      </div>
+
+  </div>
+
+<!-- End Page Content -->
+</div>
+<script>
+        document.getElementById("clearValuesCF").addEventListener("click", () => {
+          document.getElementById("income").value = "";
+          document.getElementById("tax").value = "";
+        });
+        document.getElementById("calculate").addEventListener("click", () => {
+            var income = document.getElementById("income").value*1;
+            let tax = 0;
+
+            if (income <= 250000) {
+                tax = 0;
+            } else if (income <= 400000) {
+                tax = 0.2 * (income - 250000);
+            } else if (income <= 800000) {
+                tax = 30000 + 0.25 * (income - 400000);
+            } else if (income <= 2000000) {
+                tax = 130000 + 0.3 * (income - 800000);
+            } else if (income <= 8000000) {
+                tax = 490000 + 0.32 * (income - 2000000);
+            } else {
+                tax = 2410000 + 0.35 * (income - 8000000);
+            }
+
+            document.getElementById("tax").value=tax.toFixed(2);
+        });
+    </script>
+</body>
+</html>
