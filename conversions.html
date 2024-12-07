@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Ariño - Conversions</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {font-family: "Lato", sans-serif}
+.mySlides {display: none}
+.w3-container {
+    display: block;
+    clear: both;
+  }
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-card" style="background-color: #1A2D42; color: white">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="index.html" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+ 
+   
+    <div class="w3-dropdown-hover w3-hide-small">
+      <button class="w3-padding-large w3-button" title="More">Assignments<i class="fa fa-caret-down"></i></button>     
+           <div class="w3-dropdown-content w3-bar-block w3-card-4">
+             <a href="conversions.html" class="w3-bar-item w3-button">Conversions</a>
+             <a href="incomeTaxCalc.html" class="w3-bar-item w3-button">Income Tax Calculator</a>
+            <a href="factorial.html" class="w3-bar-item w3-button">Factorial</a>
+            <a href="payroll.html" class="w3-bar-item w3-button">Payroll System</a>
+      </div>
+    </div>
+
+   
+   
+  </div>
+</div>
+<!-- Page content -->
+<br>
+<div class="w3-content" style="max-width:2000px;margin-top:46px">
+
+   <!-- The Band Section -->
+  <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
+    <h2 class="w3-wide">Celsius ↔ Fahrenheit</h2>
+     <br>
+      <label for = "celsius">Celsius: </label>
+      <input id = "celsius" type = "number">
+      <label for = "fahren">Fahrenheit: </label>
+      <input id = "fahren" type = "number">
+      <button id = "clearValuesCF">Clear values</button>
+
+      <br><br><br>
+     
+    <h2 class="w3-wide">Meters ↔ Feet</h2>
+     <br>
+      <label for = "meters">Meters: </label>
+      <input id = "meters" type = "number">
+      <label for = "feet">Feet: </label>
+      <input id = "feet" type = "number">
+      <button id = "clearValuesMF">Clear values</button>
+     
+
+
+  </div>
+
+  
+<!-- End Page Content -->
+</div>
+<script>
+  document.getElementById("clearValuesCF").addEventListener("click", ()=>
+    {
+
+    document.getElementById("celsius").value='';
+    document.getElementById("fahren").value='';
+
+    }
+  );
+  document.getElementById("celsius").addEventListener("keyup", ()=>
+    {
+
+    var c = document.getElementById("celsius").value*1;
+    var f = c * (9/5) + 32;
+    document.getElementById("fahren").value=f.toFixed(2);
+
+    }
+  );
+  document.getElementById("fahren").addEventListener("keyup", ()=>
+    {
+
+    var f = document.getElementById("fahren").value*1;
+    var c = (f - 32) * (5/9);
+    document.getElementById("celsius").value=c.toFixed(2);
+
+    }
+  );
+  document.getElementById("clearValuesMF").addEventListener("click", ()=>
+    {
+
+    document.getElementById("meters").value='';
+    document.getElementById("feet").value='';
+
+    }
+  );
+  document.getElementById("feet").addEventListener("keyup", ()=>
+    {
+
+    var f = document.getElementById("feet").value*1;
+    var m = f / 3.28;
+    document.getElementById("meters").value=m.toFixed(2);
+
+    }
+  );
+  document.getElementById("meters").addEventListener("keyup", ()=>
+    {
+
+    var m = document.getElementById("meters").value*1;
+    var f = m * 3.28;
+    document.getElementById("feet").value=f.toFixed(2);
+
+    }
+  );
+</script>
+</body>
+</html>
